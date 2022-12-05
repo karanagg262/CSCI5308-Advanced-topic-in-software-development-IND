@@ -104,7 +104,7 @@ public class GameBoard
 	// Increment the building count.
 	public void IncrementBuildingCount()
 	{
-		buildingCount += 1;
+		buildingCount += 3;
 	}
 	
 	// Decrement the building count.
@@ -122,6 +122,8 @@ public class GameBoard
 	public void InitializeShieldCount()
 	{
 		shieldCount = 2;
+		GameBoard.Instance().IncrementBuildingCount();
+		GameBoard.Instance().IncrementBuildingCount();
 	}
 	
 	// Decrement the building count.

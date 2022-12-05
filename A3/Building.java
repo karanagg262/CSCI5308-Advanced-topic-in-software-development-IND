@@ -8,6 +8,7 @@ public class Building extends BoardComponent implements Observer
 	{
 		super();
 		buildingHealth = 2;
+		Subject.Instance().attach(this);
 	}
 
 	@Override
