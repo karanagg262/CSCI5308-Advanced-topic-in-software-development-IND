@@ -16,13 +16,14 @@ public class Asteroid extends BoardComponent
 		// one level at a time, when they hit the ground (height == 0) they impact
 		// and destroy whatever buildings are in the square!
 		height -= 1;
+		
 		if (0 == height)
 		{
 			// When an Asteroid impacts the ground it needs to send an event to the
 			// observer to tell it that it impacted the ground in the square it belongs
 			// to.
 			// <-- Send event to observer. 
-			Subject.Instance().notifyAttack();
+			Subject.Instance().notifyAttack(this.parent);
 			// It should then remove itself from its parent, it no longer exists in the
 			// hierarchy and should not receive any more operations.
 			parent.Remove(this);		
@@ -39,5 +40,11 @@ public class Asteroid extends BoardComponent
 	public void Remove(BoardComponent child)
 	{
 		// I'm a leaf!
+	}
+
+	@Override
+	public void update(BoardComponent boardcomponent) {
+		// TODO Auto-generated method stub
+		
 	}	
 }

@@ -11,10 +11,6 @@ public class SpawnShieldCommand extends Command {
 		IAsteroidGameFactory factory = GameBoard.Instance().GetFactory();
 		System.out.println("Spawning shield at (" + args[0] + "," + args[1] + ")");
 		shield.Add(factory.MakeSquare());	
-		
-		
-		Observer obj1 = new Shield();
-		Subject.Instance().attach(obj1);
 
 	}
 

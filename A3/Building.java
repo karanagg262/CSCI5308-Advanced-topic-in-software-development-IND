@@ -29,11 +29,13 @@ public class Building extends BoardComponent implements Observer
 	}
 
 	@Override
-	public void update() {
+	public void update(BoardComponent boardComponent) {
 		GameBoard.Instance().DecrementBuildingCount();
 		if(GameBoard.Instance().GetBuildingCount() == 0) {
-			this.Remove(this);
+			this.Remove(this.parent);
+			Subject.Instance().detach(this.parent);
 		}
 		
 	}
+
 }

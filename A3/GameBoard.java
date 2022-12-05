@@ -72,7 +72,7 @@ public class GameBoard
 					command.Execute();
 				}
 				// After every command check whether the game is over!
-				if (gameState.IsGameOver())
+				if (gameState.IsGameOver() || !iter.hasNext())
 				{
 					// Game over, stop processing commands even if there are some left
 					System.out.println("GAME OVER!!");
@@ -105,7 +105,6 @@ public class GameBoard
 	public void IncrementBuildingCount()
 	{
 		buildingCount += 1;
-		buildingCount += 2;
 	}
 	
 	// Decrement the building count.
@@ -122,8 +121,6 @@ public class GameBoard
 	// Increment the shield count.
 	public void InitializeShieldCount()
 	{
-		GameBoard.Instance().IncrementBuildingCount();
-		GameBoard.Instance().IncrementBuildingCount();
 		shieldCount = 2;
 	}
 	

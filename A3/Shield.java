@@ -3,11 +3,12 @@ public class Shield extends ShieldDecorator implements Observer {
 	private Square square;
 	
 	public Shield() {
-		
+		Subject.Instance().attach(this);
 	}
 
 	public Shield(Square square) {
 		super();
+		Subject.Instance().attach(this);
 	}
 	
 	@Override
@@ -31,10 +32,11 @@ public class Shield extends ShieldDecorator implements Observer {
 	}
 	
 	@Override
-	public void update() {
+	public void update(BoardComponent boardComponent) {
 		GameBoard.Instance().DecrementShieldCount();
 		if(GameBoard.Instance().GetShieldCount() == 0) {
 			Remove(this);
+			Subject.Instance().detach(this);
 		}
 	}
 

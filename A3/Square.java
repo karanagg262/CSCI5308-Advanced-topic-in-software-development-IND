@@ -10,6 +10,8 @@ public class Square extends BoardComponent
 	{
 		super();
 		children = new ArrayList<BoardComponent>();
+		
+		Subject.Instance().attach(this);
 	}
 
 	@Override
@@ -35,5 +37,10 @@ public class Square extends BoardComponent
 	public void Remove(BoardComponent child)
 	{
 		children.remove(child);
+	}
+
+	@Override
+	public void update(BoardComponent boardcomponent) {
+		
 	}
 }
